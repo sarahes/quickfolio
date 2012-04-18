@@ -1,3 +1,2 @@
-Sarah Sheehan
-DIG4503 - Semester Project
-
+Sarah Sheehan - DIG4503 Semester Project
+======
