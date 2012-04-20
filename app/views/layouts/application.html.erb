@@ -7,26 +7,12 @@
   <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<header>
-		<h1>Quickfolio </h1>
-
-		<div class="login">
-			<p>Log in here! </p>
-		</div>
-	</header>
-
+	<%= render 'layouts/header' %>
+	
 	<section class="content">
 		<%= yield %>
 	</section>
 
-	<footer>
-		<ul>
-			<li><a href="/pages/home">Home </a></li>
-			<li><a href="/pages/about">About </a></li>
-			<li><a href="/pages/contact">Contact </a></li>			
-		</ul>
-
-		<p>Created by <a href="http://www.sarahes.com">Sarah Sheehan</a> for DIG4503. </p>
-	</footer>
+	<%= render 'layouts/footer' %>	
 </body>
 </html>
