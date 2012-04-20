@@ -1,31 +1,93 @@
+
+/*the following is to make the footer stick to the bottom of the page and was taken from http://css-tricks.com/snippets/css/sticky-footer/ */
+* { margin:0; padding:0; } 
+html, body, #wrap { height: 100%; }
+body > #wrap {height: auto; min-height: 100%;}
+.clear:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clear {display: inline-block;}
+* html .clear { height: 1%;}
+.clear {display: block;}
+
+
+/* my css! */
 body{
 	font-size: 100%;
 	background: #CAFCD8 url('../images/bg.png');
+	font-family: Georgia, serif;
 }
 
 h1{
 	font-family: 'Trocchi', serif;
 	font-weight: normal;	
-	font-size: 3em;
+	font-size: 4em;
 	color: #04BFBF;
+	text-shadow: 2px 2px 0 #707070;
+	float: left;
+	margin-bottom: 20px;
 }
 
 h2{
 	font-family: 'Trocchi', serif;
 	font-weight: normal;	
 	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+p{
+	margin: 15px 0;
+}
+
+a:link, a:active, a:visited{
+	color: #E85304;
+}
+
+a:hover{
+	color: #E5A52A;
 }
 
 header, .content{
 	width: 960px;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 
-.welcome{
-	
-	overflow:hidden;
-	height:1%;
+.content{
+	padding-bottom: 150px;
+}
 
+.login{
+	font-size: .75em;
+	float: left;
+	margin-left: 200px;
+}
+
+.login p{
+	text-align: right;
+}
+
+.input{
+	border: 1px solid #CCC; 
+	padding: 8px;
+	width: 100px;
+}
+.submit{
+	padding: 8px;
+	background: #04BFBF;	
+	color: #FFF;
+	border: none;  
+}
+
+.submit:hover{
+	background: #03A5A5;
+}
+
+.welcome{	
+	clear: both;
 }
 
 .welcome_msg, .preview{
@@ -66,4 +128,8 @@ header, .content{
 
 footer{
 	background: #04BFBF;
+	position: relative;
+	margin-top: -150px; 
+	height: 150px;
+	clear:both;
 }

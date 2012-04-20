@@ -2,6 +2,12 @@
 	<h1>Quickfolio </h1>
 
 	<div class="login">
-		<p><%= link_to "Sign up now", signup_path, :class => "btn" %></p>
+		<form>
+			<input class="input" type="text" placeholder="Username" />
+			<input class="input" type="password" placeholder="Password" />
+			<input class="submit" type="submit" value="Log in" />
+		</form>
+
+		<p>Don't have a portfolio, yet? <%= link_to "Sign up now", signup_path, :class => "btn" %>!</p>
 	</div>
 </header>
