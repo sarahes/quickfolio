@@ -1,3 +1,69 @@
+body{
+	font-size: 100%;
+	background: #CAFCD8 url('../images/bg.png');
+}
+
 h1{
-	color: red;
+	font-family: 'Trocchi', serif;
+	font-weight: normal;	
+	font-size: 3em;
+	color: #04BFBF;
+}
+
+h2{
+	font-family: 'Trocchi', serif;
+	font-weight: normal;	
+	font-size: 2em;
+}
+
+header, .content{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.welcome{
+	
+	overflow:hidden;
+	height:1%;
+
+}
+
+.welcome_msg, .preview{
+	float: left;
+	width: 400px;
+}
+
+.welcome_msg{
+	margin-right: 50px;	
+	background: #FFF;
+}
+
+.preview img{
+	border: 15px solid #FFF;
+}
+
+.featured{
+	clear: both;
+}
+
+.featured ul{
+	list-style-type: none;
+	
+}
+
+.featured li{
+	display: inline;
+	margin-right: 25px;
+}
+
+.featured img{
+	border: 10px solid #FFF;
+}
+
+.featured img:hover{
+	border-color: #04BFBF;
+}
+
+footer{
+	background: #04BFBF;
 }
