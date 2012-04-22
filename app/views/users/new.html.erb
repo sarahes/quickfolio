@@ -1,2 +1,29 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Sign up</h2>
+<p>Sign up for Quickfolio to begin building your portfolio</p>
+
+<ul class="signup_form">
+<%= form_for(@user) do |f| %>
+
+	<%= render 'shared/error_messages' %>
+	
+	<li><%= f.label :user_name %> </br>
+		<%= f.text_field :user_name %>
+	</li>
+
+	<li><%= f.label :email %> </br>
+		<%= f.text_field :email %>
+	</li>
+
+	<li><%= f.label :password %> </br>
+		<%= f.password_field :password %>
+	</li>
+
+	<li><%= f.label :password_conformation %> </br>
+		<%= f.password_field :password_confirmation %>
+	</li>
+
+	<li><%= f.submit "Sign up" %> </li>
+<% end %>
+</ul>
+
+
