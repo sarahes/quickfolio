@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.12'
 gem 'mysql2', '< 0.3'
+gem 'gravatar_image_tag'
 
 group  :development do
   gem 'rspec-rails', '2.0.1'
@@ -14,4 +15,5 @@ group :test do
   gem 'spork', '0.8.4'
   gem 'mynyml-redgreen'
   gem 'ZenTest'
+  gem 'factory_girl_rails', '1.0'
 end

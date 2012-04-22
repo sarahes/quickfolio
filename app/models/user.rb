@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   #accessible attributes aka can be editted by users
+  attr_accessor :password
   attr_accessible :user_name, :email, :password, :password_confirmation
 
   email_regex = /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
@@ -15,6 +16,42 @@ class User < ActiveRecord::Base
   validates :password, :presence => true,
   					   :confirmation => true,
   					   :length => { :within => 6..40 }
+
+  before_save :encrypt_password
+
+  #this exists to compare submitted passwords to encrypted passwords becuase encyption methods are private
+  def has_password?(submitted_password)
+  	encrypted_password == encrypt(submitted_password)
+  end
+
+  #authenticate the user (using their email and submitted password)
+  def self.authenticate(email, submitted_password)
+  	user = find_by_email(email)
+  	return nil if user.nil?
+  	return user if user.has_password?(submitted_password)
+  end
+
+  private
+  	#the following are all private methods, the user should never have access to them
+
+  	def encrypt_password
+  		#check the users encrypted password (in the db) against the submitted (and encrypted) password
+  		self.salt = make_salt if new_record? #only create a salt if the user is a new user
+  		self.encrypted_password = encrypt(password)
+  	end
+
+  	def encrypt(string)
+  		secure_hash("#{salt}--#{string}")
+  	end
+
+  	def make_salt
+  		#each user has a unique salt based off a timestamp
+  		secure_hash("#{Time.now.utc}--#{password}")
+  	end
+
+  	def secure_hash(string)
+  		Digest::SHA2.hexdigest(string)
+  	end
 end
 
 # == Schema Information
