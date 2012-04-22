@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   #accessible attributes aka can be editted by users
-  attr_accessible :user_name, :email 
+  attr_accessible :user_name, :email, :password, :password_confirmation
 
   email_regex = /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
 
@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
   					:format => { :with => email_regex },
   					:uniqueness => { :case_sensitive => false }
+
+  validates :password, :presence => true,
+  					   :confirmation => true,
+  					   :length => { :within => 6..40 }
 end
 
 # == Schema Information
