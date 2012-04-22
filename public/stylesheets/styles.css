@@ -57,6 +57,7 @@ header, .content{
 }
 
 .content{
+	clear: both;
 	padding-bottom: 150px;
 }
 

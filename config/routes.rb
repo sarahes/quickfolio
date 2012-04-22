@@ -1,6 +1,6 @@
 SemesterProject::Application.routes.draw do
+  resources :users #adds all of the RESTful routes for users
 
-  get "users/new"
   match '/signup', :to => 'users#new'
 
   root :to => 'pages#home'
