@@ -7,3 +7,7 @@ REQUESTING PAGE: GET /signup with {} and HTTP headers {}
 REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
 REQUESTING PAGE: GET /signup with {} and HTTP headers {}
 REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
