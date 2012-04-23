@@ -11,4 +11,6 @@ SemesterProject::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/contact', :to => 'pages#contact'
 
+  match "/:id", :to => "users#show", :as => :friendly_user 
+
 end

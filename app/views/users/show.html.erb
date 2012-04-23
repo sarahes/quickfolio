@@ -1,2 +1,38 @@
-<h2><%= @user.user_name %><br />
-<%= gravatar_image_tag @user.email, :class => 'gravatar' %></h2>
+<h2><%= gravatar_image_tag @user.email, :class => 'gravatar' %> <%= @user.f_name + " " + @user.l_name%></h2>
+<p><%= @user.class_stading + ", " + @user.svad_major %></p>
+
+<div class="social_media">
+	<ul>
+		<% if !@user.twitter_url.nil? %>
+			<li><a href="<%= @user.twitter_url %>"><%= @user.twitter_url %></a></li>
+		<% end %>
+
+		<% if !@user.facebook_url.nil? %>
+			<li><a href="<%= @user.facebook_url %>"><%= @user.facebook_url %></a></li>
+		<% end %>
+
+		<% if !@user.linkedin_url.nil? %>
+			<li><a href="<%= @user.linkedin_url %>"><%= @user.linkedin_url %></a></li>
+		<% end %>
+
+		<% if !@user.forrst_user_name.nil? %>
+			<li><a href="<%= @user.forrst_user_name %>"><%= @user.forrst_user_name %></a></li>
+		<% end %>
+	</ul>
+</div>
+
+<h3>About Me </h3>
+	<% if !@user.about.nil? %>
+		<p><%= @user.about %></p>
+	<% end %>
+
+<h3>Skills </h3>
+
+<h3>Recent Work </h3>
+
+<h3>Contact</h3>
+	<p class="email"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
+	<% if !@user.phone.nil? %>
+		<p class="phone"><%= @user.phone %></p>
+	<% end %>
+

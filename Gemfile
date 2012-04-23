@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.12'
 gem 'mysql2', '< 0.3'
 gem 'gravatar_image_tag'
+gem 'make_permalink'
 
 group  :development do
   gem 'rspec-rails', '2.0.1'

@@ -1,0 +1,68 @@
+<h2>Edit Your Portfolio</h2>
+<p>Build your portfolio below. </p>
+
+<ul class="update_profile_form">
+<%= form_for(@user) do |f| %>
+
+	<%= render 'shared/error_messages' %>
+	
+	<li><%= f.label :f_name %> </br>
+		<%= f.text_field :f_name %>
+	</li>
+
+	<li><%= f.label :l_name %> </br>
+		<%= f.text_field :l_name %>
+	</li>
+
+	<li><%= f.label :city %> </br>
+		<%= f.text_field :city %>
+	</li>
+
+	<li><%= f.label :state %> </br>
+		<%= f.text_field :state %>
+	</li>
+
+	<li><%= f.label :phone %> </br>
+		<%= f.text_field :phone %>
+	</li>
+
+	<li><%= f.label :svad_major %> </br>
+		<%= f.text_field :svad_major %>
+	</li>
+
+	<!-- accidentally typo-ed standing when I created my migration and didn't bother to fix it -->
+	<li><%= f.label :class_stading %> </br>
+		<%= f.text_field :class_stading %>
+	</li>
+
+	<li><%= f.label :twitter_url %> </br>
+		<%= f.text_field :twitter_url %>
+	</li>
+
+	<li><%= f.label :facebook_url %> </br>
+		<%= f.text_field :facebook_url %>
+	</li>
+
+	<li><%= f.label :linkedin_url %> </br>
+		<%= f.text_field :linkedin_url %>
+	</li>
+
+	<li><%= f.label :forrst_user_name %> </br>
+		<%= f.text_field :forrst_user_name %>
+	</li>
+
+	<li><%= f.label :website %> </br>
+		<%= f.text_field :website %>
+	</li>
+
+	<li><%= f.label :about %> </br>
+		<%= f.text_area :about %>
+	</li>
+
+	<li><%= gravatar_image_tag @user.email, :class => 'gravatar' %><br />
+		<a target="_blank" href="http://gravatar.com/emails">Change user image</a>.
+	</li>
+
+	<li><%= f.submit "Update Portfolio" %> </li>
+<% end %>
+</ul>
