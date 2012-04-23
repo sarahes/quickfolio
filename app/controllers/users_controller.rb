@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params[:user])
   	if @user.save
+      #if the user was saved to the database, sign them in, set the flash message and redirect to their show page
+      sign_in @user
       flash[:success] = "You have successfully signed up for Quickfolio!"
   		redirect_to @user
   	else

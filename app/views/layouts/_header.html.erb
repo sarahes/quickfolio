@@ -2,12 +2,14 @@
 	<h1>Quickfolio </h1>
 
 	<div class="login">
-		<form>
-			<input class="input" type="text" placeholder="Username" />
-			<input class="input" type="password" placeholder="Password" />
-			<input class="submit" type="submit" value="Log in" />
-		</form>
-
-		<p>Don't have a portfolio, yet? <%= link_to "Sign up now", signup_path, :class => "btn" %>!</p>
+		<% if signed_in? %>
+			<ul>
+				<li><%= link_to "Your Portfolio", current_user %></li>
+				<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+			</ul>
+		<% else %>
+			<p><%= link_to "Sign in", signin_path %></p>
+			<p>Don't have a portfolio, yet? <%= link_to "Sign up now", signup_path, :class => "btn" %>!</p>
+		<% end %>
 	</div>
 </header>

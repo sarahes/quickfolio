@@ -31,6 +31,15 @@ class User < ActiveRecord::Base
   	return user if user.has_password?(submitted_password)
   end
 
+  #authenticate the user's salt against the cookie created when they login
+  def self.authenticate_with_salt(id, cookie)
+    user = find_by_id(id)
+
+    #if the user is valid and the salt is equal to the cookie, return the user
+    #else return nil (invalid salt/cookie combo)
+    (user && user.salt == cookie) ? user : nil
+  end
+
   private
   	#the following are all private methods, the user should never have access to them
 
