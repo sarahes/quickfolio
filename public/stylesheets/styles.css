@@ -22,6 +22,7 @@ body{
 	font-family: Georgia, serif;
 }
 
+
 h1{
 	font-family: 'Trocchi', serif;
 	font-weight: normal;	
@@ -125,6 +126,31 @@ header, .content{
 
 .featured img:hover{
 	border-color: #04BFBF;
+}
+
+.user_img, .user_name{
+	float: left;
+}
+
+.user_name{
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.social_media{
+	float: right;
+}
+
+.social_media ul{
+	list-style-type: none;
+}
+.social_media li{
+	display: inline;
+	margin-right: 20px;
+}
+.portfolio{
+	clear: both;
+	margin-top: 20px;
 }
 
 footer{

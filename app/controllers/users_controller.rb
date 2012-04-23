@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_filter :authenticate, :only => [:edit, :update] #only logged in users can edit 
   before_filter :authenticate_correct_user, :only => [:edit, :update] #also need to ensure users can only edit their own portfolio
 
@@ -27,6 +26,14 @@ class UsersController < ApplicationController
   def show
   	@user = User.find_by_user_name(params[:id]) || User.find_by_id(params[:id])
   	@title = @user.user_name
+
+    #get the user's 5 most recent tweets
+    @tweets = Twitter.user_timeline(@user.twitter_username, :count => 5)
+    
+    #get the user's github repositories
+    github_user = GitHub::API.user("sesheehan")
+
+    @repos = github_user.repositories
   end
 
   def edit

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423070719) do
+ActiveRecord::Schema.define(:version => 20120423222134) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "user_name"
@@ -26,13 +34,14 @@ ActiveRecord::Schema.define(:version => 20120423070719) do
     t.string   "state"
     t.string   "phone"
     t.string   "svad_major"
-    t.string   "class_stading"
-    t.string   "twitter_url"
+    t.string   "class_standing"
+    t.string   "twitter_username"
+    t.string   "forrst_username"
     t.string   "facebook_url"
     t.string   "linkedin_url"
-    t.string   "forrst_user_name"
     t.string   "website"
     t.text     "about"
+    t.string   "github_username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
+
+  #users can have many omniauth authentications (logged in with many accounts)
+  has_many :authentications
+
   #accessible attributes aka can be editted by users
   attr_accessor :password
   attr_accessible :user_name, :email, :password, :password_confirmation, :f_name,
-                  :l_name, :city, :state, :phone, :svad_major, :class_stading, :twitter_url, 
-                  :facebook_url, :linkedin_url, :forrst_user_name, :website, :about
+                  :l_name, :city, :state, :phone, :svad_major, :class_standing, :twitter_username, 
+                  :facebook_url, :linkedin_url, :forrst_username, :github_username, :website, :about
 
   email_regex = /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
 
@@ -33,7 +37,7 @@ class User < ActiveRecord::Base
                     :length => { :maximum => 50 },
                     :on => :update
 
-  validate :class_stading, :presence => true,
+  validate :class_standing, :presence => true,
                     :length => { :maximum => 50 },
                     :on => :update
 
@@ -41,10 +45,11 @@ class User < ActiveRecord::Base
   validates_length_of :city, :maximum => 50, :allow_blank => true
   validates_length_of :state, :maximum => 50, :allow_blank => true
   validates_length_of :phone, :maximum => 50, :allow_blank => true #I probably should do some other kind of validation on phone but for not just length
-  validates_length_of :twitter_url, :maximum => 50, :allow_blank => true
+  validates_length_of :twitter_username, :maximum => 50, :allow_blank => true  
+  validates_length_of :forrst_username, :maximum => 50, :allow_blank => true
+  validates_length_of :github_username, :maximum => 50, :allow_blank => true
   validates_length_of :facebook_url, :maximum => 50, :allow_blank => true
   validates_length_of :linkedin_url, :maximum => 50, :allow_blank => true
-  validates_length_of :forrst_user_name, :maximum => 50, :allow_blank => true
   validates_length_of :website, :maximum => 50, :allow_blank => true
 
   validate :check_website_url #if a url is entered, must have http or https   

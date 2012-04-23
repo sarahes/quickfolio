@@ -9,9 +9,8 @@
 	<h2>Recent Portfolios </h2>
 
 	<ul>
-		<li><img src="http://placekitten.com/150/150" alt="" /> </li>
-		<li><img src="http://placekitten.com/150/150" alt="" /> </li>
-		<li><img src="http://placekitten.com/150/150" alt="" /> </li>
-		<li><img src="http://placekitten.com/150/150" alt="" /> </li>
+	<% @users.each do |user| %>
+		<li><a href="/<%= user.user_name %>"><%= gravatar_image_tag user.email, :class => 'gravatar' %> </a> </li>
+	<% end %>
 	</ul>
 </div>

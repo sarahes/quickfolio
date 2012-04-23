@@ -1,38 +1,61 @@
-<h2><%= gravatar_image_tag @user.email, :class => 'gravatar' %> <%= @user.f_name + " " + @user.l_name%></h2>
-<p><%= @user.class_stading + ", " + @user.svad_major %></p>
+<div class="user_header">
+	<p class="user_img"><%= gravatar_image_tag @user.email, :class => 'gravatar',  :size => 80 %></p>
 
-<div class="social_media">
-	<ul>
-		<% if !@user.twitter_url.nil? %>
-			<li><a href="<%= @user.twitter_url %>"><%= @user.twitter_url %></a></li>
-		<% end %>
+	<div class="user_name">
+		<h2><%= @user.f_name + " " + @user.l_name%></h2>
+		<p><%= @user.class_standing + ", " + @user.svad_major %></p>
+	</div>
 
-		<% if !@user.facebook_url.nil? %>
-			<li><a href="<%= @user.facebook_url %>"><%= @user.facebook_url %></a></li>
-		<% end %>
+	<div class="social_media">
+		<ul>
+			<% if !@user.twitter_username.nil? %>
+				<li><a  class="twitter" href="<%= @user.twitter_username %>"><img src="/images/twitter.png" alt="Twitter" /></a></li>
+			<% end %>
 
-		<% if !@user.linkedin_url.nil? %>
-			<li><a href="<%= @user.linkedin_url %>"><%= @user.linkedin_url %></a></li>
-		<% end %>
+			<% if !@user.facebook_url.nil? %>
+				<li><a class="fb" href="<%= @user.facebook_url %>"><img src="/images/fb.png" alt="Facebook" /></a></li>
+			<% end %>
 
-		<% if !@user.forrst_user_name.nil? %>
-			<li><a href="<%= @user.forrst_user_name %>"><%= @user.forrst_user_name %></a></li>
-		<% end %>
-	</ul>
+			<% if !@user.linkedin_url.nil? %>
+				<li><a class="linked" href="<%= @user.linkedin_url %>"><img src="/images/linked.png" alt="LinkedIn" /></a></li>
+			<% end %>
+
+			<% if !@user.forrst_username.nil? %>
+				<li><a class="forrst" href="<%= @user.forrst_username %>"><img src="/images/forrst.png" alt="Forrst" /></a></li>
+			<% end %>
+		</ul>
+	</div>
 </div>
 
-<h3>About Me </h3>
+
+<div class="portfolio">
 	<% if !@user.about.nil? %>
+		<h3>About Me </h3>
 		<p><%= @user.about %></p>
 	<% end %>
 
-<h3>Skills </h3>
-
-<h3>Recent Work </h3>
-
-<h3>Contact</h3>
-	<p class="email"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
-	<% if !@user.phone.nil? %>
-		<p class="phone"><%= @user.phone %></p>
+	<% if !@user.twitter_username.nil? %>
+		<h3>Recent Tweets </h3>
+		<ul>
+		<% @tweets.each do |tweet| %>
+			<li><%= auto_link(tweet.text) %></li>
+		<% end %>
+		</ul>
 	<% end %>
 
+	<% if !@user.github_username.nil? %>
+		<h3>Github Repositories </h3>
+		<ul>
+		<% @repos.each do |repo| %>
+			<li><a href="<%= repo.url %>"><%= repo.name %></a> <br /> <%= repo.description %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<h3>Contact</h3>
+		<p class="email"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
+		<% if !@user.phone.nil? %>
+			<p class="phone"><%= @user.phone %></p>
+		<% end %>
+
+</div>

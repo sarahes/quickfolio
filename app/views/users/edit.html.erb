@@ -29,14 +29,21 @@
 	<li><%= f.label :svad_major %> </br>
 		<%= f.text_field :svad_major %>
 	</li>
-
-	<!-- accidentally typo-ed standing when I created my migration and didn't bother to fix it -->
-	<li><%= f.label :class_stading %> </br>
-		<%= f.text_field :class_stading %>
+	
+	<li><%= f.label :class_standing %> </br>
+		<%= f.text_field :class_standing %>
 	</li>
 
-	<li><%= f.label :twitter_url %> </br>
-		<%= f.text_field :twitter_url %>
+	<li><%= f.label :twitter_username %> </br>
+		<%= f.text_field :twitter_username %>
+	</li>
+
+	<li><%= f.label :forrst_username %> </br>
+		<%= f.text_field :forrst_username %>
+	</li>
+
+	<li><%= f.label :github_username %> </br>
+		<%= f.text_field :github_username %>
 	</li>
 
 	<li><%= f.label :facebook_url %> </br>
@@ -45,11 +52,7 @@
 
 	<li><%= f.label :linkedin_url %> </br>
 		<%= f.text_field :linkedin_url %>
-	</li>
-
-	<li><%= f.label :forrst_user_name %> </br>
-		<%= f.text_field :forrst_user_name %>
-	</li>
+	</li>	
 
 	<li><%= f.label :website %> </br>
 		<%= f.text_field :website %>
