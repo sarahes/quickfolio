@@ -10,6 +10,12 @@
 	<div id="wrap"><!--this div is to make the footer "sticky" boo extra div for presenation reasons :( -->
 		<%= render 'layouts/header' %>
 		
+		<section class="flash_msg">
+			<% flash.each do |key, value| %>
+				<p class="<%= key %>"><%= value %></p>
+			<% end %>			
+		</section>
+
 		<section class="content clear">
 			<%= yield %>
 		</section>

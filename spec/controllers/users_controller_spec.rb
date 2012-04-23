@@ -76,5 +76,28 @@ describe UsersController do
       end
 
     end #end describe failure
+
+    describe "success" do
+      before(:each) do
+        @attr = { :user_name => "New User", :email => "user@example.com", :password => "password", :password_confirmation => "password" }
+      end
+
+      it "should create a user" do
+        lambda do
+          post :create, :user => @attr
+        end.should change(User, :count).by(1)
+      end
+
+      it "should redirect to the user show page" do
+        post :create, :user => @attr
+        response.should redirect_to(user_path(assigns(:user)))
+      end
+
+      it "should have a success message" do
+        post :create, :user => @attr
+        flash[:success].should =~ /You have successfully signed up/i
+      end
+    end #end describe success
+
   end #end describe post create
 end
