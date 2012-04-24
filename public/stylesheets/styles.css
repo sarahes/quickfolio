@@ -153,10 +153,16 @@ header, .content{
 	margin-top: 20px;
 }
 
+.about, .twitter. .github{
+	margin-bottom: 20px;
+}
+
 footer{
 	background: #04BFBF;
 	position: relative;
 	margin-top: -150px; 
 	height: 150px;
 	clear:both;
+	text-align: center;
+	padding-top: 20px;
 }

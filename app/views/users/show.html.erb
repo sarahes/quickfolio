@@ -30,32 +30,40 @@
 
 <div class="portfolio">
 	<% if !@user.about.nil? %>
-		<h3>About Me </h3>
-		<p><%= @user.about %></p>
+		<section class="about">
+			<h3>About Me </h3>
+			<p><%= @user.about %></p>
+		<section>
 	<% end %>
 
 	<% if !@user.twitter_username.nil? %>
-		<h3>Recent Tweets </h3>
-		<ul>
-		<% @tweets.each do |tweet| %>
-			<li><%= auto_link(tweet.text) %></li>
-		<% end %>
-		</ul>
+		<section class="twitter">
+			<h3>Recent Tweets </h3>
+			<ul>
+			<% @tweets.each do |tweet| %>
+				<li><%= auto_link(tweet.text) %></li>
+			<% end %>
+			</ul>
+		</section>
 	<% end %>
 
 	<% if !@user.github_username.nil? %>
-		<h3>Github Repositories </h3>
-		<ul>
-		<% @repos.each do |repo| %>
-			<li><a href="<%= repo.url %>"><%= repo.name %></a> <br /> <%= repo.description %></li>
-		<% end %>
-		</ul>
+		<section class="github">
+			<h3>Github Repositories </h3>
+			<ul>
+			<% @repos.each do |repo| %>
+				<li><a href="<%= repo.url %>"><%= repo.name %></a> <br /> <%= repo.description %></li>
+			<% end %>
+			</ul>
+		</section>
 	<% end %>
 
+	<section class="contact">
 	<h3>Contact</h3>
 		<p class="email"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
 		<% if !@user.phone.nil? %>
 			<p class="phone"><%= @user.phone %></p>
 		<% end %>
+	<section>
 
 </div>
