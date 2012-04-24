@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @tweets = Twitter.user_timeline(@user.twitter_username, :count => 5)
     
     #get the user's github repositories
-    github_user = GitHub::API.user("sesheehan")
+    github_user = GitHub::API.user(@user.github_username)
 
     @repos = github_user.repositories
   end
