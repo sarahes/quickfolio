@@ -9,10 +9,9 @@
 	<h2>Recent Portfolios </h2>
 
 	<ul>
-	<%= if !@users.nil? %>
 		<% @users.each do |user| %>
 			<li><a href="/<%= user.user_name %>"><%= gravatar_image_tag user.email, :class => 'gravatar' %> </a> </li>
 		<% end %>
-	<% end %>
+	
 	</ul>
 </div>
