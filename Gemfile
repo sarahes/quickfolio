@@ -15,7 +15,7 @@ gem 'json'
 gem 'faraday'
 gem 'jquery-rails'
 #gem 'fancybox-rails'
-
+gem 'hoe', ' 2.10.0' 
 group  :development do
   gem 'rspec-rails', '2.0.1'
   gem 'annotate'
