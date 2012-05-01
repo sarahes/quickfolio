@@ -47,7 +47,7 @@
 		</section>
 	<% end %>
 
-	<% if !@user.github_username.nil? %>
+	<% if !@user.github_username.nil? && !@repos.nil? %>
 		<section class="github">
 			<h3>Github Repositories </h3>
 			<ul>
