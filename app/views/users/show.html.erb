@@ -8,19 +8,19 @@
 
 	<div class="social_media">
 		<ul>
-			<% if !@user.twitter_username.nil? && !@user.twitter_username == "N/A" %>
+			<% if !@user.twitter_username.nil? || !@user.twitter_username == "N/A" %>
 				<li><a  class="twitter" href="http://www.twitter.com/<%= @user.twitter_username %>"><img src="/images/twitter.png" alt="Twitter" /></a></li>
 			<% end %>
 
-			<% if !@user.facebook_url.nil? && !@user.facebook_url == "N/A" %>
+			<% if !@user.facebook_url.nil? || !@user.facebook_url == "N/A" %>
 				<li><a class="fb" href="http://www.facebook.com/<%= @user.facebook_url %>"><img src="/images/fb.png" alt="Facebook" /></a></li>
 			<% end %>
 
-			<% if !@user.linkedin_url.nil? && !@user.linkedin_url == "N/A" %>
+			<% if !@user.linkedin_url.nil? || !@user.linkedin_url == "N/A" %>
 				<li><a class="linked" href="<%= @user.linkedin_url %>"><img src="/images/linked.png" alt="LinkedIn" /></a></li>
 			<% end %>
 
-			<% if !@user.forrst_username.nil? && !@user.forrst_username == "N/A" %>
+			<% if !@user.forrst_username.nil? || !@user.forrst_username == "N/A" %>
 				<li><a class="forrst" href="<%= @user.forrst_username %>"><img src="/images/forrst.png" alt="Forrst" /></a></li>
 			<% end %>
 		</ul>
