@@ -41,7 +41,7 @@
 			<h3>Recent Tweets </h3>
 			<ul>
 			<% @tweets.each do |tweet| %>
-				<li><%= auto_link(tweet.text) %></li>
+				<li><%= raw CGI.unescapeHTML(auto_link(tweet.text)) %></li>
 			<% end %>
 			</ul>
 		</section>
